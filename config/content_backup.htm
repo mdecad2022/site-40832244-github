@@ -255,12 +255,14 @@ brython({debug:1, pythonpath:['/static/','./../downloads/py/']});
 <script src="/static/ace/mode-python3.js" type="text/javascript"></script>
 <script src="/static/ace/snippets/python.js" type="text/javascript"></script>
 </p>
+<p>
 <script src="/static/Cango-24v03-min.js"></script>
 <script src="/static/gearUtils-09.js"></script>
 <script src="/static/SVGpathUtils-6v03-min.js"></script>
 <script src="/static/sylvester.js"></script>
 <script src="/static/PrairieDraw.js"></script>
-<p><button id="brycode">Brython code(include comment)</button></p>
+</p>
+<p><button id="brycode">Brython code(include comment)</button> <button id="onlycode">Only Brython code</button></p>
 <p>
 <script type="text/javascript">
 function doSave(storage_id, filename){
@@ -315,9 +317,9 @@ Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id
 
 brycode_url = "https://gist.githubusercontent.com/40832244-github/d8b2556052e0846da9e0fb2446b34423/raw/c8134fe20345b8373962c577f206e06875cd5539/brycode.py"
 
-prog1 = open(brycode_url).read()
+add_src = open(brycode_url).read()
 def add(ev):
-    Ace2.editor.setValue(prog1)
+    Ace2.editor.setValue(add_src)
     Ace2.editor.scrollToRow(0)
     Ace2.editor.gotoLine(0)
     Ace2.run()
@@ -330,7 +332,6 @@ doc["brycode"].bind('click', add)
 <p><button id="kw_run1">Run</button> <button id="kw_show_console1">Output</button> <button id="kw_clear_console1">清除輸出區</button><button id="clear_bd1">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
 <div id="brython_div1"></div>
-<p><!-- editor1 結束 --></p>
 <hr/>
 <p><!-- ########################################## --></p>
 <p></p>
@@ -355,12 +356,14 @@ brython({debug:1, pythonpath:['/static/','./../downloads/py/']});
 <script src="/static/ace/mode-python3.js" type="text/javascript"></script>
 <script src="/static/ace/snippets/python.js" type="text/javascript"></script>
 </p>
+<p>
 <script src="/static/Cango-24v03-min.js"></script>
 <script src="/static/gearUtils-09.js"></script>
 <script src="/static/SVGpathUtils-6v03-min.js"></script>
 <script src="/static/sylvester.js"></script>
 <script src="/static/PrairieDraw.js"></script>
-<p><button id="onlycode">Only Brython code</button></p>
+</p>
+<p><button id="brycode">Brython code(include comment)</button> <button id="onlycode">Only Brython code</button></p>
 <p>
 <script type="text/javascript">
 function doSave(storage_id, filename){
@@ -375,62 +378,64 @@ function doSave(storage_id, filename){
 from browser import document as doc
 import ace
 
-def clear_bd2(ev):
-    bd = doc["brython_div2"]
+def clear_bd1(ev):
+    bd = doc["brython_div1"]
     bd.clear()
-Ace3 = ace.Editor(editor_id="kw_editor2", console_id="kw_console2", container_id="kw__container2", storage_id="kw_py_src2" )
+Ace1 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
 
-def run2():
-
+def run1():
+   
     try:
-        url = doc.query["src2"]
+        url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/40832244-github/d9941be3e37ba252db101acb238afd87/raw/6ff163f872e7dc0d6780a96412847a5d941e42ff/onlycode.py"
-
+        url = "https://gist.githubusercontent.com/40832244-github/d8b2556052e0846da9e0fb2446b34423/raw/c8134fe20345b8373962c577f206e06875cd5539/brycode.py"
     prog = open(url).read()
 
-    Ace3.editor.setValue(prog)
-    Ace3.editor.scrollToRow(0)
-    Ace3.editor.gotoLine(0)
+    Ace1.editor.setValue(prog)
+    Ace1.editor.scrollToRow(0)
+    Ace1.editor.gotoLine(0)
+    
+    Ace1.run()
 
-    Ace3.run()
+doc['kw_run1'].bind('click', Ace1.run)
+doc['kw_show_console1'].bind('click', Ace1.show_console)
+doc['kw_clear_console1'].bind('click', Ace1.clear_console)
+doc['clear_bd1'].bind('click', clear_bd1)
 
-doc['kw_run2'].bind('click', Ace3.run)
-doc['kw_show_console2'].bind('click', Ace3.show_console)
-doc['kw_clear_console2'].bind('click', Ace3.clear_console)
-doc['clear_bd2'].bind('click', clear_bd2)
-
-run2()
+run1()
 </script>
 </p>
 <p>
 <script type="text/python3">
 from browser import document as doc
 import ace
-    
-def clear_bd2(ev):
-    bd = doc["brython_div2"]
+
+def clear_bd1(ev):
+    bd = doc["brython_div1"]
     bd.clear()
-    
-Ace4 = ace.Editor(editor_id="kw_editor2", console_id="kw_console2", container_id="kw__container2", storage_id="kw_py_src2" )
-    
-onlycode_url = "https://gist.githubusercontent.com/40832244-github/d9941be3e37ba252db101acb238afd87/raw/6ff163f872e7dc0d6780a96412847a5d941e42ff/onlycode.py"
-    
-add_src = open(onlycode_url).read()
-def add2(ev):
-        Ace4.editor.setValue(add_src)
-        Ace4.editor.scrollToRow(0)
-        Ace4.editor.gotoLine(0)
-        Ace4.run()
-    
-doc["onlycode"].bind('click', add)
+
+Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
+
+brycode_url = "https://gist.githubusercontent.com/40832244-github/d8b2556052e0846da9e0fb2446b34423/raw/c8134fe20345b8373962c577f206e06875cd5539/brycode.py"
+
+add_src = open(brycode_url).read()
+def add(ev):
+    Ace2.editor.setValue(add_src)
+    Ace2.editor.scrollToRow(0)
+    Ace2.editor.gotoLine(0)
+    Ace2.run()
+
+doc["brycode"].bind('click', add)
 </script>
 </p>
-<div id="kw_editor2" style="width: 600px; height: 300px;"></div>
-<form><label>Filename: <input id="kw_filename2" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src2', 'kw_filename2');" type="submit" value="Save"/></form>
-<p><button id="kw_run2">Run</button> <button id="kw_show_console2">Output</button> <button id="kw_clear_console2">清除輸出區</button><button id="clear_bd2">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
-<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console2"></textarea></div>
-<div id="brython_div2"></div><h1>Brython</h1>
+<div id="kw_editor1" style="width: 600px; height: 300px;"></div>
+<form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
+<p><button id="kw_run1">Run</button> <button id="kw_show_console1">Output</button> <button id="kw_clear_console1">清除輸出區</button><button id="clear_bd1">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
+<div id="brython_div1"></div>
+<hr/>
+<p><!-- ########################################## --></p>
+<p></p><h1>Brython</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
 <p style="padding-left: 30px;"><a href="https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d">https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d</a></p>
