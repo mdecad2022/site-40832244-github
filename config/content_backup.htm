@@ -233,7 +233,9 @@ doc["W11"].bind('click', add)
 <p></p>
 <p></p>
 <h2>Brython編寫</h2>
-<p><button id="Brython.py">Brython編寫程式</button></p>
+<p>編輯網站 : <a href="https://www.tutorialspoint.com/online_html_editor.php">https://www.tutorialspoint.com/online_html_editor.php</a></p>
+<p></p>
+<p><button id="brycode">Brython code</button></p>
 <!-- 導入 brython 程式庫 -->
 <p>
 <script src="/static/brython.js"></script>
@@ -242,9 +244,12 @@ doc["W11"].bind('click', add)
 <!-- 啟動 Brython -->
 <p>
 <script>
-window.onload=function(){
-brython({debug:1, pythonpath:['/static/','./../downloads/py/']});
-}
+window.onload = function() {
+            brython({
+                debug: 1,
+                pythonpath: ['/static/', './../downloads/py/']
+            });
+        }
 </script>
 </p>
 <p><!-- 導入 FileSaver 與 filereader --></p>
@@ -269,11 +274,13 @@ brython({debug:1, pythonpath:['/static/','./../downloads/py/']});
 <p><!-- 請注意, 這裡使用 Javascript 將 localStorage["kw_py_src1"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
 <p>
 <script type="text/javascript">
-function doSave(storage_id, filename){
-    var blob = new Blob([localStorage[storage_id]], {type: "text/plain;charset=utf-8"});
-    filename = document.getElementById(filename).value
-    saveAs(blob, filename+".py");
-}
+function doSave(storage_id, filename) {
+            var blob = new Blob([localStorage[storage_id]], {
+                type: "text/plain;charset=utf-8"
+            });
+            filename = document.getElementById(filename).value
+            saveAs(blob, filename + ".py");
+        }
 </script>
 </p>
 <p>
@@ -291,8 +298,7 @@ def run1():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/40832244-github/d8b2556052e0846da9e0fb2446b34423/raw/ee5654a118c4e2d19209aea5a3ab0cd02444ca90/Brython.py"
-        
+        url = "https://gist.githubusercontent.com/40832244-github/d8b2556052e0846da9e0fb2446b34423/raw/c8134fe20345b8373962c577f206e06875cd5539/brycode.py"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -314,7 +320,7 @@ doc['clear_bd1'].bind('click', clear_bd1)
 run1()
 </script>
 </p>
-<p><!-- Brython編寫 開始 -->
+<p><!-- brython code 開始 -->
 <script type="text/python3">
 from browser import document as doc
 import ace
@@ -327,11 +333,10 @@ def clear_bd1(ev):
 # 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
 Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
 
-Brython.py_url = "https://gist.githubusercontent.com/40832244-github/d8b2556052e0846da9e0fb2446b34423/raw/ee5654a118c4e2d19209aea5a3ab0cd02444ca90/Brython.py"
-
+brycode_url = "https://gist.githubusercontent.com/40832244-github/d8b2556052e0846da9e0fb2446b34423/raw/c8134fe20345b8373962c577f206e06875cd5539/brycode.py"
 
 # 從 gist 取得程式碼
-add_src = open(add1to100_url).read()
+add_src = open(brycode_url).read()
 def add(ev):
     Ace2.editor.setValue(add_src)
     Ace2.editor.scrollToRow(0)
@@ -339,11 +344,11 @@ def add(ev):
     Ace2.run()
 
 
-doc["Brython.py"].bind('click', add)
+doc["brycode"].bind('click', add)
 </script>
 </p>
-<p><!-- Brython編寫 結束--></p>
-<!-- editor1 開始 -->
+<p><!-- brythoncode 結束--></p>
+<p><!-- editor1 開始 --></p>
 <p><!-- 用來顯示程式碼的 editor 區域 --></p>
 <div id="kw_editor1" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
@@ -359,7 +364,9 @@ doc["Brython.py"].bind('click', add)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div1"></div>
-<!-- editor1 結束 --><hr/><!-- ########################################## -->
+<p><!-- editor1 結束 --></p>
+<hr/>
+<p><!-- ########################################## --></p>
 <p></p><h1>Brython</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
