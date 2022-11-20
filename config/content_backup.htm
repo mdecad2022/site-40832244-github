@@ -182,7 +182,7 @@ doc["W11"].bind('click', add)
 <div id="kw_editor1" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
 <p><!-- 存擋表單開始 --></p>
-<form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
+<form abframeid="iframe.0.9192231242352396" abineguid="401FC5451643458E86F9E1C4948679F5"><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
 <p><!-- 存擋表單結束 --></p>
 <p></p>
 <p><!-- 執行與清除按鈕開始 --></p>
@@ -233,7 +233,7 @@ doc["W11"].bind('click', add)
 <p></p>
 <p></p>
 <h2>Brython 編輯</h2>
-<p><button id="code">Brython code</button></p>
+<p><button id="brycode">Brython code</button></p>
 <!-- 導入 brython 程式庫 -->
 <p>
 <script src="/static/brython.js"></script>
@@ -336,17 +336,17 @@ def add(ev):
     Ace2.editor.gotoLine(0)
     Ace2.run()
 
-# id 為 "code" 的按鈕點按時, 執行 add 方法
-doc['code'].bind('click', add)
+# id 為 "brycode" 的按鈕點按時, 執行 add 方法
+doc["brycode"].bind('click', add)
 </script>
 </p>
 <p><!-- brycode 結束--></p>
 <!-- editor1 開始 -->
 <p><!-- 用來顯示程式碼的 editor 區域 --></p>
-<div id="kw_editor1" style="width: 600px; height: 700px;"></div>
+<div id="kw_editor1" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
 <p><!-- 存擋表單開始 --></p>
-<form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
+<form abframeid="iframe.0.5785169896877687" abineguid="7B48F9297A044B10866BFAE46BE29703"><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
 <p><!-- 存擋表單結束 --></p>
 <p></p>
 <p><!-- 執行與清除按鈕開始 --></p>
