@@ -5,10 +5,10 @@
 <p></p>
 <p>40832244的網站 : <a href="https://mdecad2022.github.io/site-40832244-github/content/index.html">https://mdecad2022.github.io/site-40832244-github/content/index.html</a></p>
 <p>cmsite(課程倉儲) : wcms use <a href="https://github.com/mdecycu/cmsimde">https://github.com/mdecycu/cmsimde</a> as submodule</p>
-<p>-------------------------------------------------------------------------------------------------------<a href="https://mdecad2022.github.io/site-40832244-github/content/HW.html">HW</a>    <a href="https://mdecad2022.github.io/site-40832244-github/content/%E9%9B%B6%E4%BB%B6.html">W6零件</a>     <a href="https://mdecad2022.github.io/site-40832244-github/content/%E7%B5%84%E5%90%88.html">W6組合</a>     <a href="https://mdecad2022.github.io/site-40832244-github/content/W8.html">W8課堂作業</a>     <a href="https://mdecad2022.github.io/site-40832244-github/content/Note.html">Note</a>    <a href="https://mdecad2022.github.io/site-40832244-github/content/Brython.html">Brython</a></p>
+<p>-------------------------------------------------------------------------------------------------------</p>
+<p><a href="https://mdecad2022.github.io/site-40832244-github/content/HW.html">HW</a>    <a href="https://mdecad2022.github.io/site-40832244-github/content/%E9%9B%B6%E4%BB%B6.html">W6零件</a>     <a href="https://mdecad2022.github.io/site-40832244-github/content/%E7%B5%84%E5%90%88.html">W6組合</a>     <a href="https://mdecad2022.github.io/site-40832244-github/content/W8.html">W8課堂作業</a>     <a href="https://mdecad2022.github.io/site-40832244-github/content/Note.html">Note</a>    <a href="https://mdecad2022.github.io/site-40832244-github/content/Brython.html">Brython</a></p>
 <p></p>
-<p></p>
-<h1>HW</h1>
+<p></p><h1>HW</h1>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/W6.html">W6課堂作業 </a>   <a href="https://mdecad2022.github.io/site-40832244-github/content/W8%E8%AA%B2%E5%A0%82%E7%B7%B4%E7%BF%92.html">W8</a>    W10    <a href="https://mdecad2022.github.io/site-40832244-github/content/W11%E8%AA%B2%E5%A0%82%E7%B7%B4%E7%BF%92.html">W11</a></p>
 <h2>W6</h2>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/%E9%9B%B6%E4%BB%B6.html">零件 : https://mdecad2022.github.io/site-40832244-github/content/%E9%9B%B6%E4%BB%B6.html</a></p>
@@ -232,7 +232,8 @@ doc["W11"].bind('click', add)
 <p></p>
 <p></p>
 <h2>Brython 編輯</h2>
-<p><button id="brycode">Brython code</button></p>
+<p>Brython 編輯 :</p>
+<p><button id="pycode">Brython code</button></p>
 <!-- 導入 brython 程式庫 -->
 <p>
 <script src="/static/brython.js"></script>
@@ -312,7 +313,7 @@ doc['clear_bd1'].bind('click', clear_bd1)
 run1()
 </script>
 </p>
-<p><!-- brycode 開始 -->
+<p><!-- add 1 to 100 開始 -->
 <script type="text/python3">
 from browser import document as doc
 import ace
@@ -325,27 +326,27 @@ def clear_bd1(ev):
 # 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
 Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
 
-code_url = "https://gist.githubusercontent.com/40832244-github/d8b2556052e0846da9e0fb2446b34423/raw/c8134fe20345b8373962c577f206e06875cd5539/brycode.py"
+add1to100_url = "https://gist.githubusercontent.com/40832244-github/d9941be3e37ba252db101acb238afd87/raw/6ff163f872e7dc0d6780a96412847a5d941e42ff/onlycode.py"
 
 # 從 gist 取得程式碼
-add_src = open(code_url).read()
+add_src = open(add1to100_url).read()
 def add(ev):
     Ace2.editor.setValue(add_src)
     Ace2.editor.scrollToRow(0)
     Ace2.editor.gotoLine(0)
     Ace2.run()
 
-# id 為 "brycode" 的按鈕點按時, 執行 add 方法
-doc["brycode"].bind('click', add)
+# id 為 "w11" 的按鈕點按時, 執行 add 方法
+doc["pycode"].bind('click', add)
 </script>
 </p>
-<p><!-- brycode 結束--></p>
+<p><!-- w11 結束--></p>
 <!-- editor1 開始 -->
 <p><!-- 用來顯示程式碼的 editor 區域 --></p>
 <div id="kw_editor1" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
 <p><!-- 存擋表單開始 --></p>
-<form abframeid="iframe.0.5785169896877687" abineguid="7B48F9297A044B10866BFAE46BE29703"><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
+<form abframeid="iframe.0.9192231242352396" abineguid="401FC5451643458E86F9E1C4948679F5"><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
 <p><!-- 存擋表單結束 --></p>
 <p></p>
 <p><!-- 執行與清除按鈕開始 --></p>
