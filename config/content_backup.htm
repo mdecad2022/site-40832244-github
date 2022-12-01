@@ -70,7 +70,7 @@
 <h2>W10課堂練習</h2>
 <p>W10-1:列出考試人員和成績</p>
 <p>w10-2:列出缺考人員</p>
-<p><button id="W11">W10-1</button></p>
+<p><button id="W11-1">W10-1</button><button id="W11-2">W10-2</button></p>
 <!-- 導入 brython 程式庫 -->
 <p>
 <script src="/static/brython.js"></script>
@@ -174,7 +174,35 @@ def add(ev):
     Ace2.run()
 
 # id 為 "w11" 的按鈕點按時, 執行 add 方法
-doc["W11"].bind('click', add)
+doc["W11-1"].bind('click', add)
+</script>
+</p>
+<p><!-- w11 結束--></p>
+<p><!-- add 1 to 100 開始 -->
+<script type="text/python3">
+from browser import document as doc
+import ace
+
+# 清除畫布
+def clear_bd1(ev):
+    bd = doc["brython_div1"]
+    bd.clear()
+
+# 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
+Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
+
+add1to100_url = "https://gist.githubusercontent.com/40832244-github/78ef5bbdf31154f94fcac0950384500b/raw/a443dc183c38ee13a13ff15c9c22b1e6407e856b/notestname.py"
+
+# 從 gist 取得程式碼
+add_src = open(add1to100_url).read()
+def add(ev):
+    Ace2.editor.setValue(add_src)
+    Ace2.editor.scrollToRow(0)
+    Ace2.editor.gotoLine(0)
+    Ace2.run()
+
+# id 為 "w11" 的按鈕點按時, 執行 add 方法
+doc["W11-2"].bind('click', add)
 </script>
 </p>
 <p><!-- w11 結束--></p>
@@ -195,10 +223,13 @@ doc["W11"].bind('click', add)
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div1"></div>
 <!-- editor1 結束 --><hr/><!-- ########################################## -->
-<p></p>
-<h2>W12</h2>
+<p></p><h2>W12</h2>
 <h2>W13</h2>
-<h1>Note</h1>
+<p><img caption="false" height="312" src="/images/link.jpg" width="400"/></p>
+<p><img caption="false" height="303" src="/images/base.jpg" width="400"/></p>
+<p><img alt="" height="262" src="/images/shaft.jpg" width="400"/></p>
+<p><img alt="" height="346" src="/images/assemble.jpg" width="400"/></p>
+<p></p><h1>Note</h1>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/%E7%B7%A8%E8%BC%AF%E5%AD%90%E6%A8%A1%E7%B5%84(cmsimde).html">編輯子模組(cmsimde)</a></p>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/ADD,%20REMOVE%20OR%20CHANGE%20PASSPHRASE%20OF%20AN%20SSH%20KEY.html">ADD, REMOVE OR CHANGE PASSPHRASE OF AN SSH KEY</a></p>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/Brython%20編輯.html">Brython編寫</a></p>
