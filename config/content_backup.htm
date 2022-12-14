@@ -67,9 +67,9 @@
 <p><img alt="" height="316" src="/images/w8-onshape.jpg" width="682"/><img alt="" height="316" src="/images/NX .jpg" width="682"/></p>
 <p></p>
 <h2>W10課堂練習</h2>
-<p>W10-1:列出考試人員和成績</p>
-<p>w10-2:列出缺考人員</p>
-<p><button id="W11-1">W10-1</button><button id="W11-2">W10-2</button></p>
+<p>W10-1:列出缺考人員</p>
+<p>w10-2:列出考試人員和成績</p>
+<p><button id="W10-1">W10-1</button><button id="W10-2">W10-2</button></p>
 <!-- 導入 brython 程式庫 -->
 <p>
 <script src="/static/brython.js"></script>
@@ -127,7 +127,7 @@ def run1():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/40832244-github/5f3c147a45a00e098d7faebe8115688d/raw/155325c5e7941455c04e569aae224560962a42aa/W11.py"
+        url = "https://gist.githubusercontent.com/40832244-github/78ef5bbdf31154f94fcac0950384500b/raw/a443dc183c38ee13a13ff15c9c22b1e6407e856b/notestname.py"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -162,7 +162,7 @@ def clear_bd1(ev):
 # 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
 Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
 
-add1to100_url = "https://gist.githubusercontent.com/40832244-github/5f3c147a45a00e098d7faebe8115688d/raw/155325c5e7941455c04e569aae224560962a42aa/W11.py"
+add1to100_url = "https://gist.githubusercontent.com/40832244-github/78ef5bbdf31154f94fcac0950384500b/raw/a443dc183c38ee13a13ff15c9c22b1e6407e856b/notestname.py"
 
 # 從 gist 取得程式碼
 add_src = open(add1to100_url).read()
@@ -173,7 +173,7 @@ def add(ev):
     Ace2.run()
 
 # id 為 "w11" 的按鈕點按時, 執行 add 方法
-doc["W11-1"].bind('click', add)
+doc["W10-1"].bind('click', add)
 </script>
 </p>
 <p><!-- w11 結束--></p>
@@ -190,7 +190,7 @@ def clear_bd1(ev):
 # 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
 Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
 
-add1to100_url = "https://gist.githubusercontent.com/40832244-github/78ef5bbdf31154f94fcac0950384500b/raw/a443dc183c38ee13a13ff15c9c22b1e6407e856b/notestname.py"
+add1to100_url = "https://gist.githubusercontent.com/40832244-github/5f3c147a45a00e098d7faebe8115688d/raw/155325c5e7941455c04e569aae224560962a42aa/W11.py"
 
 # 從 gist 取得程式碼
 add_src = open(add1to100_url).read()
@@ -201,7 +201,7 @@ def add(ev):
     Ace2.run()
 
 # id 為 "w11" 的按鈕點按時, 執行 add 方法
-doc["W11-2"].bind('click', add)
+doc["W10-2"].bind('click', add)
 </script>
 </p>
 <p><!-- w11 結束--></p>
@@ -222,8 +222,8 @@ doc["W11-2"].bind('click', add)
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div1"></div>
 <!-- editor1 結束 --><hr/><!-- ########################################## -->
-<p></p><h2>W12</h2>
-<h2>W13</h2>
+<p></p><h2>W11</h2><h2>W13</h2>
+<p><a href="/downloads/w13 one link robot 零組件繪圖與模擬.zip">零件檔案</a></p>
 <p><img caption="false" height="312" src="/images/link.jpg" width="400"/></p>
 <p><img caption="false" height="303" src="/images/base.jpg" width="400"/></p>
 <p><img alt="" height="262" src="/images/shaft.jpg" width="400"/></p>
