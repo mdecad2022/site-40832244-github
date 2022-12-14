@@ -142,8 +142,8 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">W10課堂練習 << <a href='W10課堂練習.html'>Previous</a> <a href='W13.html'>Next</a> >> W13<br /><h1>W11</h1>
-<p>W11-1:列出缺考人員及人數</p>
-<p>w11-2:本次小考平均</p>
+<p>W11-1:缺考人數</p>
+<p>w11-2:本次小考平均分數</p>
 <p><button id="W11-1">W11-1</button><button id="W11-2">W11-2</button></p>
 <!-- 導入 brython 程式庫 -->
 <p>
@@ -202,7 +202,7 @@ def run1():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/40832244-github/78ef5bbdf31154f94fcac0950384500b/raw/a443dc183c38ee13a13ff15c9c22b1e6407e856b/notestname.py"
+        url = "https://gist.githubusercontent.com/40832244-github/0f066b062956bcbbe23985b902863212/raw/3d94d9ffde0398ba1f0ac57f951cfea50532400c/HW11_list.py"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -237,7 +237,7 @@ def clear_bd1(ev):
 # 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
 Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
 
-add1to100_url = "https://gist.githubusercontent.com/40832244-github/78ef5bbdf31154f94fcac0950384500b/raw/a443dc183c38ee13a13ff15c9c22b1e6407e856b/notestname.py"
+add1to100_url = "https://gist.githubusercontent.com/40832244-github/0f066b062956bcbbe23985b902863212/raw/3d94d9ffde0398ba1f0ac57f951cfea50532400c/HW11_list.py"
 
 # 從 gist 取得程式碼
 add_src = open(add1to100_url).read()
