@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='40832244的倉儲.html'>40832244的倉儲</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li class='has-children'><a href='W6.html'>W6</a><ul class='dropdown'><li><a href='零件.html'>零件</a><li><a href='組合.html'>組合</a></li></ul><li><a href='W8課堂練習.html'>W8課堂練習</a><li><a href='W10課堂練習.html'>W10課堂練習</a><li><a href='W11.html'>W11</a><li><a href='W13.html'>W13</a></li></ul><li class='has-children'><a href='Note.html'>Note</a><ul class='dropdown'><li><a href='編輯子模組(cmsimde).html'>編輯子模組(cmsimde)</a><li><a href='ADD, REMOVE OR CHANGE PASSPHRASE OF AN SSH KEY.html'>ADD, REMOVE OR CHANGE PASSPHRASE OF AN SSH KEY</a><li><a href='Brython 編輯.html'>Brython 編輯</a></li>
+                     <li><a href='40832244的倉儲.html'>40832244的倉儲</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li class='has-children'><a href='W6.html'>W6</a><ul class='dropdown'><li><a href='零件.html'>零件</a><li><a href='組合.html'>組合</a></li></ul><li><a href='W8課堂練習.html'>W8課堂練習</a><li><a href='W10課堂作業.html'>W10課堂作業</a><li><a href='W11課堂作業.html'>W11課堂作業</a><li><a href='W13.html'>W13</a></li></ul><li class='has-children'><a href='Note.html'>Note</a><ul class='dropdown'><li><a href='編輯子模組(cmsimde).html'>編輯子模組(cmsimde)</a><li><a href='ADD, REMOVE OR CHANGE PASSPHRASE OF AN SSH KEY.html'>ADD, REMOVE OR CHANGE PASSPHRASE OF AN SSH KEY</a><li><a href='Brython 編輯.html'>Brython 編輯</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,10 +141,10 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">W8課堂練習 << <a href='W8課堂練習.html'>Previous</a> <a href='W11.html'>Next</a> >> W11<br /><h1>W10課堂練習</h1>
-<p>W10-1:列出缺考人員</p>
-<p>w10-2:列出考試人員和成績</p>
-<p><button id="W10-1">W10-1</button><button id="W10-2">W10-2</button></p>
+    <div id="tipue_search_content">W10課堂作業 << <a href='W10課堂作業.html'>Previous</a> <a href='W13.html'>Next</a> >> W13<br /><h1>W11課堂作業</h1>
+<p>W11-1:缺考人數</p>
+<p>w11-2:本次小考平均分數</p>
+<p><button id="W11-1">W11-1</button><button id="W11-2">W11-2</button></p>
 <!-- 導入 brython 程式庫 -->
 <p>
 <script src="./../cmsimde/static/brython.js"></script>
@@ -202,7 +202,7 @@ def run1():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/40832244-github/78ef5bbdf31154f94fcac0950384500b/raw/a443dc183c38ee13a13ff15c9c22b1e6407e856b/notestname.py"
+        url = "https://gist.githubusercontent.com/40832244-github/0f066b062956bcbbe23985b902863212/raw/3d94d9ffde0398ba1f0ac57f951cfea50532400c/HW11_list.py"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -237,7 +237,7 @@ def clear_bd1(ev):
 # 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
 Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
 
-add1to100_url = "https://gist.githubusercontent.com/40832244-github/78ef5bbdf31154f94fcac0950384500b/raw/a443dc183c38ee13a13ff15c9c22b1e6407e856b/notestname.py"
+add1to100_url = "https://gist.githubusercontent.com/40832244-github/0f066b062956bcbbe23985b902863212/raw/3d94d9ffde0398ba1f0ac57f951cfea50532400c/HW11_list.py"
 
 # 從 gist 取得程式碼
 add_src = open(add1to100_url).read()
@@ -248,7 +248,7 @@ def add(ev):
     Ace2.run()
 
 # id 為 "w11" 的按鈕點按時, 執行 add 方法
-doc["W10-1"].bind('click', add)
+doc["W11-1"].bind('click', add)
 </script>
 </p>
 <p><!-- w11 結束--></p>
@@ -265,7 +265,7 @@ def clear_bd1(ev):
 # 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
 Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
 
-add1to100_url = "https://gist.githubusercontent.com/40832244-github/78ef5bbdf31154f94fcac0950384500b/raw/ceef074175913977872cfdc407c58546c6bd3ea8/HW-10-2.py"
+add1to100_url = "https://gist.githubusercontent.com/40832244-github/0a46a3c369c3ecb46be865696b23b281/raw/fc0dccf14777ad610fea193f28ef0e9a34624431/HW_average.py"
 
 # 從 gist 取得程式碼
 add_src = open(add1to100_url).read()
@@ -276,7 +276,7 @@ def add(ev):
     Ace2.run()
 
 # id 為 "w11" 的按鈕點按時, 執行 add 方法
-doc["W10-2"].bind('click', add)
+doc["W11-2"].bind('click', add)
 </script>
 </p>
 <p><!-- w11 結束--></p>
@@ -297,7 +297,7 @@ doc["W10-2"].bind('click', add)
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div1"></div>
 <!-- editor1 結束 --><hr/><!-- ########################################## -->
-<p></p><br />W8課堂練習 << <a href='W8課堂練習.html'>Previous</a> <a href='W11.html'>Next</a> >> W11</div>
+<p></p><br />W10課堂作業 << <a href='W10課堂作業.html'>Previous</a> <a href='W13.html'>Next</a> >> W13</div>
         
     <!-- footer -->
       <div class="container">
