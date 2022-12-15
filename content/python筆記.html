@@ -2,7 +2,7 @@
         <head>
         <title>cmsite</title>
         <meta charset="utf-8">
-<meta property="head" content="H3">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -141,31 +141,57 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Sovelspace << <a href='Sovelspace.html'>Previous</a> <a href='NX.html'>Next</a> >> NX<br /><h1>Onshape</h1>
-<p><a href="https://cad.onshape.com/documents/22c70f0a78a5e85861c28f4d/w/a11579cbb9b94e5e5a03a086/e/7ca1911808e20235896bc3e4">base</a></p>
-<p><img caption="false" height="278" src="./../images/base-onshape.jpg" width="600"/></p>
-<p><a href="https://cad.onshape.com/documents/a8acec08874ef9cc84ab9281/w/88f68ec869d55e8a77d1fca8/e/b6230497eaee208a37590bc9">shaft</a></p>
-<p><img alt="" height="278" src="./../images/shaft-onshape.jpg" width="600"/></p>
-<p><a href="https://cad.onshape.com/documents/38a384356cb3912c3fcb11a5/w/a62003f5504ed77634571fb9/e/8e042b9afb03badc4218cd3a">link</a></p>
-<p><img alt="" height="278" src="./../images/link-onshape.jpg" width="600"/></p>
-<p><a href="https://cad.onshape.com/documents/c9e0c98d8c8ba59fb1dd8ad4/w/ca5f85e1206941130919be11/e/0b4c7cd2681d381dde35f3f0?renderMode=0&amp;uiState=639aa9ae747f616eea7ca0d9">assembly</a></p>
-<p><img alt="" height="278" src="./../images/assembly-onshape.jpg" width="600"/></p>
-<p>Wink Video</p>
-<p></p>
-<script>
-var winkVideoData_40832244 = {
-  dataVersion: 1,
-  frameRate: 10,
-  buttonFrameLength: 5,
-  buttonFrameOffset: 2,
-  frameStops: {
-  },
-};
-</script>
-<!-- 接下來將 mp4 檔案從 downloads 目錄取出 -->
-<div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_40832244" height="600" muted="true" width="800">
-<source src="./../downloads/w13_one_link_robot_onshape.mp4" type="video/mp4"/></video></div>
-<br />Sovelspace << <a href='Sovelspace.html'>Previous</a> <a href='NX.html'>Next</a> >> NX</div>
+    <div id="tipue_search_content">Brython 編輯 << <a href='Brython 編輯.html'>Previous</a> <br /><h1>python筆記</h1>
+<p>如何算出平均數</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">cp_score = []
+# 從修課學員數列中, 逐一按照學號次序, 以重複迴圈將學號對應至 stud 變數
+for stud in cp_stud:
+    # 因為缺考學員在考試結果的 dict 中並無資料, 因此利用 try except 進行判斷
+    try:
+        # 針對 stud 學號, 有考試成績者, 列出其學號與得分
+        #cp_quiz[stud] 為全班考試成績，將此設為一個變數a存在cp_score = []內，將資料帶出迴圈
+        a = (cp_quiz[stud])
+        cp_score.append(a)
+        
+ 
+    except:
+        # 缺考者沒有 quiz 成績, 則在其成績欄位印出"缺"
+        b = (0)
+        # 同時將缺考學員學號以 append() 方法逐一置入
+        cp_abs.append(stud)
+
+#設總分tota;一開始為0
+total=0
+#設迴圈的變數為 i ，並將 i 的數字範圍為分數的個數，並將其加總維新總分
+for i in range(0, len(cp_score)):
+    total = total + cp_score[i]
+print("本班總分:"+str(total)+"分")
+#將總分平均除以班級人數可得班平均
+average = total / len(cp_stud)
+#round( a , 1 )在括弧內逗號左邊放想取小數點的變數，右邊放想娶到幾位數 
+averageround = round(average, 3)
+print("本次小考平均"+str(averageround)+"分")</pre>
+<p>========================================================</p>
+<p>len : 可算出也幾個資料數</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">len(放入變數)</pre>
+<p>========================================================</p>
+<p>str : 將數字變為字串，通常在書雌時使用</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">print("我是"+str(40832244)+"四設計四乙")\
+#若單存輸出數字則可單獨印出
+print(40832244)</pre>
+<p>同樣做輸出，python與C++相比，python較輕鬆許多，C++的輸出架構如下</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">#include&lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+
+    cout &lt;&lt; "大家好" &lt;&lt; endl;
+   //在&lt;&lt;____&lt;&lt;之間也可單純放入變數輸出變數，輸出的數字或字串隨運算而變
+
+    return 0;
+}</pre>
+<p></p><br />Brython 編輯 << <a href='Brython 編輯.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
