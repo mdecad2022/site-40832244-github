@@ -603,8 +603,7 @@ var winkVideoData_40832244 = {
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/ADD,%20REMOVE%20OR%20CHANGE%20PASSPHRASE%20OF%20AN%20SSH%20KEY.html">ADD, REMOVE OR CHANGE PASSPHRASE OF AN SSH KEY</a></p>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/Brython%20編輯.html">Brython編寫</a></p>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/python%E7%AD%86%E8%A8%98.html">python筆記</a></p>
-<p></p>
-<h2>編輯子模組(cmsimde)</h2>
+<p><a href="https://mdecad2022.github.io/site-40832244-github/content/當大型擋住無法上傳時解決辦法.html">當大型擋住無法上傳時解決辦法</a></p><h2>編輯子模組(cmsimde)</h2>
 <p><a href="https://stackoverflow.com/questions/19508849/how-to-fix-broken-submodule-config-in-git">參考網站</a> </p>
 <p>進入編輯網頁後之編輯指令:(向下 : J 向上 : K 刪除 : DD)</p>
 <p>1.進入倉儲(cd s) <span>➞ 進入</span>.git(cd .git)，使用指令(vi config)進入編輯comfig</p>
@@ -973,6 +972,7 @@ int main()
 <p></p>
 <p></p>
 <h2>當大型擋住無法上傳時解決辦法</h2>
+<p><a href="https://stackoverflow.com/questions/19573031/cant-push-to-github-because-of-large-file-which-i-already-deleted">參考網站</a>及<a href="https://mde.tw/demo/content/Windows.html">老師的網站</a></p>
 <p>若曾經推送大型檔案（大於GitHub所給的100mb），則會被擋住推送，就算刪除該大型檔案也是，就會出現一下畫面</p>
 <p><img caption="false" height="277" src="/images/7ABB41FA-7314-433E-9153-2BF48F7F00BA.png" width="600"/></p>
 <p>解決步驟如下：</p>
@@ -983,4 +983,4 @@ git checkout (會列出存在index的檔案名稱）</pre>
 <pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">git reset —soft Head～</pre>
 <p>若有數個推送次數想要刪除</p>
 <pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">git reset —soft HEAD~2(數字為推送次數）</pre>
-<p></p>
+<p>3.最後只需要再去acp 就完成上傳了</p>
