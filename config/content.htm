@@ -15,7 +15,8 @@
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/W11%E8%AA%B2%E5%A0%82%E4%BD%9C%E6%A5%AD.html">W11</a></p>
 <p>W12</p>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/W13.html">W13</a></p>
-<p><a href="https://mdecad2022.github.io/site-40832244-github/content/w14.html">W14</a></p><h2>W6</h2>
+<p><a href="https://mdecad2022.github.io/site-40832244-github/content/w14.html">W14</a></p>
+<h2>W6</h2>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/%E9%9B%B6%E4%BB%B6.html">零件 : https://mdecad2022.github.io/site-40832244-github/content/%E9%9B%B6%E4%BB%B6.html</a></p>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/%E7%B5%84%E5%90%88.html">組合 : https://mdecad2022.github.io/site-40832244-github/content/%E7%B5%84%E5%90%88.html</a></p>
 <h3>零件</h3>
@@ -227,7 +228,8 @@ doc["W10-2"].bind('click', add)
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div1"></div>
 <!-- editor1 結束 --><hr/><!-- ########################################## -->
-<p></p><h2>W11</h2>
+<p></p>
+<h2>W11</h2>
 <p>W11-1:缺考人數</p>
 <p>w11-2:本次小考平均分數</p>
 <p><button id="W11-1">W11-1</button><button id="W11-2">W11-2</button></p>
@@ -512,7 +514,8 @@ doc["W12"].bind('click', add)
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div1"></div>
 <!-- editor1 結束 --><hr/><!-- ########################################## -->
-<p></p><h2>W13</h2>
+<p></p>
+<h2>W13</h2>
 <p><a href="/downloads/w13 one link robot 零組件繪圖與模擬.zip">零件檔案</a></p>
 <p><img caption="false" height="312" src="/images/link.jpg" width="400"/></p>
 <p><img caption="false" height="303" src="/images/base.jpg" width="400"/></p>
@@ -967,4 +970,17 @@ int main()
 
     return 0;
 }</pre>
+<p></p>
+<p></p>
+<h2>當大型擋住無法上傳時解決辦法</h2>
+<p>若曾經推送大型檔案（大於GitHub所給的100mb），則會被擋住推送，就算刪除該大型檔案也是，就會出現一下畫面</p>
+<p><img caption="false" height="277" src="/images/7ABB41FA-7314-433E-9153-2BF48F7F00BA.png" width="600"/></p>
+<p>解決步驟如下：</p>
+<p>1.查看有多少檔案存在推送歷史內：</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">git checkout . (可查看有多少檔案存在index)
+git checkout (會列出存在index的檔案名稱）</pre>
+<p>2.<span class="s1">近端改版已經提交但尚未推送</span><span class="s2">, </span><span class="s1">希望刪除這些變更</span></p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">git reset —soft Head～</pre>
+<p>若有數個推送次數想要刪除</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">git reset —soft HEAD~2(數字為推送次數）</pre>
 <p></p>
