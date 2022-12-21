@@ -141,10 +141,10 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">W10 << <a href='W10.html'>Previous</a> <a href='W12.html'>Next</a> >> W12<br /><h1>W11</h1>
-<p>W11-1:缺考人數</p>
-<p>w11-2:本次小考平均分數</p>
-<p><button id="W11-1">W11-1</button><button id="W11-2">W11-2</button></p>
+    <div id="tipue_search_content">W11 << <a href='W11.html'>Previous</a> <a href='W13.html'>Next</a> >> W13<br /><h1>W12</h1>
+<p>W12:W10延伸題目</p>
+<div>1.如何直接讓使用者利用瀏覽器接受 <a href="https://gist.githubusercontent.com/mdecycu/9df4b372ac1b7386cf259ced15f1a2b2/raw/fbadccd8fce09ad97db246bfd4538e8a6998099d/cad2022_w10_2b_quiz_result.json" rel="noreferrer noopener" tabindex="-1" target="_blank" title="https://gist.githubusercontent.com/mdecycu/9df4b372ac1b7386cf259ced15f1a2b2/raw/fbadccd8fce09ad97db246bfd4538e8a6998099d/cad2022_w10_2b_quiz_result.json">w10 2b 考試結果 JSON 檔案</a>上傳, 然後直接列出考試結果, 缺考名單與該次考試的平均分數?</div>
+<p><button id="W12">W12</button></p>
 <!-- 導入 brython 程式庫 -->
 <p>
 <script src="./../cmsimde/static/brython.js"></script>
@@ -202,7 +202,7 @@ def run1():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/40832244-github/0f066b062956bcbbe23985b902863212/raw/3d94d9ffde0398ba1f0ac57f951cfea50532400c/HW11_list.py"
+        url = "https://gist.githubusercontent.com/40832244-github/e7e2fae5cf403975bfcf4c7dc15c7d9c/raw/4914ea5da6699521062382ba31d13ae0e6b6c0ab/W12.py"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -237,7 +237,7 @@ def clear_bd1(ev):
 # 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
 Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
 
-add1to100_url = "https://gist.githubusercontent.com/40832244-github/0f066b062956bcbbe23985b902863212/raw/3d94d9ffde0398ba1f0ac57f951cfea50532400c/HW11_list.py"
+add1to100_url = "https://gist.githubusercontent.com/40832244-github/e7e2fae5cf403975bfcf4c7dc15c7d9c/raw/4914ea5da6699521062382ba31d13ae0e6b6c0ab/W12.py"
 
 # 從 gist 取得程式碼
 add_src = open(add1to100_url).read()
@@ -248,35 +248,7 @@ def add(ev):
     Ace2.run()
 
 # id 為 "w11" 的按鈕點按時, 執行 add 方法
-doc["W11-1"].bind('click', add)
-</script>
-</p>
-<p><!-- w11 結束--></p>
-<p><!-- add 1 to 100 開始 -->
-<script type="text/python3">
-from browser import document as doc
-import ace
-
-# 清除畫布
-def clear_bd1(ev):
-    bd = doc["brython_div1"]
-    bd.clear()
-
-# 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
-Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
-
-add1to100_url = "https://gist.githubusercontent.com/40832244-github/0a46a3c369c3ecb46be865696b23b281/raw/fc0dccf14777ad610fea193f28ef0e9a34624431/HW_average.py"
-
-# 從 gist 取得程式碼
-add_src = open(add1to100_url).read()
-def add(ev):
-    Ace2.editor.setValue(add_src)
-    Ace2.editor.scrollToRow(0)
-    Ace2.editor.gotoLine(0)
-    Ace2.run()
-
-# id 為 "w11" 的按鈕點按時, 執行 add 方法
-doc["W11-2"].bind('click', add)
+doc["W12"].bind('click', add)
 </script>
 </p>
 <p><!-- w11 結束--></p>
@@ -297,8 +269,7 @@ doc["W11-2"].bind('click', add)
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div1"></div>
 <!-- editor1 結束 --><hr/><!-- ########################################## -->
-<p></p>
-<br />W10 << <a href='W10.html'>Previous</a> <a href='W12.html'>Next</a> >> W12</div>
+<p></p><br />W11 << <a href='W11.html'>Previous</a> <a href='W13.html'>Next</a> >> W13</div>
         
     <!-- footer -->
       <div class="container">
