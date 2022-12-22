@@ -206,7 +206,7 @@ def run1():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/40832244-github/7df08bbb14d4e9cbe9a3b0be5a4d67b4/raw/c11540727344ca7c7ca1e541e39ee26d5f4aa979/W14_teaxher.py"
+        url = "https://gist.githubusercontent.com/40832244-github/7df08bbb14d4e9cbe9a3b0be5a4d67b4/raw/d8235321cdea1bc040befbe82c5612dddbfbdcb4/W14_teaxher.py"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -241,7 +241,7 @@ def clear_bd1(ev):
 # 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
 Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
 
-add1to100_url = "https://gist.githubusercontent.com/40832244-github/7df08bbb14d4e9cbe9a3b0be5a4d67b4/raw/c11540727344ca7c7ca1e541e39ee26d5f4aa979/W14_teaxher.py"
+add1to100_url = "https://gist.githubusercontent.com/40832244-github/7df08bbb14d4e9cbe9a3b0be5a4d67b4/raw/d8235321cdea1bc040befbe82c5612dddbfbdcb4/W14_teaxher.py"
 
 # 從 gist 取得程式碼
 add_src = open(add1to100_url).read()
