@@ -528,7 +528,7 @@ doc["W12"].bind('click', add)
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/Sovelspace.html">Sovelspace</a>      <a href="https://mdecad2022.github.io/site-40832244-github/content/Onshape.html">Onshape</a>     <a href="https://mdecad2022.github.io/site-40832244-github/content/NX.html">NX</a></p>
 <p></p>
 <div>在頁面列出 w14 缺考者名單</div>
-<div>輸入此Url
+<div>請複製此輸入Url
 <pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">https://nfu.cycu.org/?semester=1111&amp;courseno=0786&amp;column=True,https://gist.githubusercontent.com/mdecycu/9df4b372ac1b7386cf259ced15f1a2b2/raw/41ef20244a885c3daba8ee77652fd0717d3abda2/cad2022_w14_2b_quiz.json</pre>
 </div>
 <p><button id="W12">W14</button><button id="W14">W14(no input)</button></p>
@@ -684,8 +684,7 @@ doc["W14"].bind('click', add)
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div1"></div>
 <!-- editor1 結束 --><hr/><!-- ########################################## -->
-<p></p>
-<h3>Sovelspace</h3>
+<p></p><h3>Sovelspace</h3>
 <p><a href="/downloads/Solvespace零件檔.zip">零件檔</a></p>
 <p>base</p>
 <p><img alt="" height="318.125" src="/images/base-solvespace.jpg" width="600"/></p>
@@ -708,8 +707,7 @@ var winkVideoData_4083224 = {
 </script>
 <!-- 接下來將 mp4 檔案從 downloads 目錄取出 -->
 <div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_40832244" height="630" muted="true" width="1008">
-<source src="/downloads/w13_one_link_robot_solvespace .mp4" type="video/mp4"/></video></div>
-<h3>Onshape</h3>
+<source src="/downloads/w13_one_link_robot_solvespace .mp4" type="video/mp4"/></video></div><h3>Onshape</h3>
 <p><a href="https://cad.onshape.com/documents/22c70f0a78a5e85861c28f4d/w/a11579cbb9b94e5e5a03a086/e/7ca1911808e20235896bc3e4">base</a></p>
 <p><img caption="false" height="278" src="/images/base-onshape.jpg" width="600"/></p>
 <p><a href="https://cad.onshape.com/documents/a8acec08874ef9cc84ab9281/w/88f68ec869d55e8a77d1fca8/e/b6230497eaee208a37590bc9">shaft</a></p>
@@ -773,6 +771,160 @@ var winkVideoData_40832244 = {
 </div>
 <h2>W16</h2>
 <pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">https://nfu.cycu.org/?semester=1111&amp;courseno=0786&amp;column=True,https://gist.githubusercontent.com/mdecycu/9df4b372ac1b7386cf259ced15f1a2b2/raw/10f495ddcd065511d076b588aed11c5d6efa8ea7/2b_w16_quiz.json</pre>
+<p></p>
+<p><button id="W12">W16</button><button id="W14">W16(no input)</button></p>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<p><!-- 導入 FileSaver 與 filereader --></p>
+<p>
+<script src="/static/ace/FileSaver.min.js" type="text/javascript"></script>
+<script src="/static/ace/filereader.js" type="text/javascript"></script>
+</p>
+<p><!-- 導入 ace --></p>
+<p>
+<script src="/static/ace/ace.js" type="text/javascript"></script>
+<script src="/static/ace/ext-language_tools.js" type="text/javascript"></script>
+<script src="/static/ace/mode-python3.js" type="text/javascript"></script>
+<script src="/static/ace/snippets/python.js" type="text/javascript"></script>
+</p>
+<p><!-- 導入 gearUtils-0.9.js Cango 齒輪繪圖程式庫 -->
+<script src="/static/Cango-24v03-min.js"></script>
+<script src="/static/gearUtils-09.js"></script>
+<script src="/static/SVGpathUtils-6v03-min.js"></script>
+<script src="/static/sylvester.js"></script>
+<script src="/static/PrairieDraw.js"></script>
+</p>
+<p><!-- 請注意, 這裡使用 Javascript 將 localStorage["kw_py_src1"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
+<p>
+<script type="text/javascript">
+function doSave(storage_id, filename){
+    var blob = new Blob([localStorage[storage_id]], {type: "text/plain;charset=utf-8"});
+    filename = document.getElementById(filename).value
+    saveAs(blob, filename+".py");
+}
+</script>
+</p>
+<p>
+<script type="text/python3">
+from browser import document as doc
+import ace
+# 清除畫布
+def clear_bd1(ev):
+    bd = doc["brython_div1"]
+    bd.clear()
+Ace1 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
+# 從 gist 取出程式碼後, 放入 editor 作為 default 程式
+def run1():
+    # 利用 get 取下 src 變數值
+    try:
+        url = doc.query["src"]
+    except:
+        url = "https://gist.githubusercontent.com/40832244-github/be09b29d26bfc7e79ed5510bec78690e/raw/3edfcd46aeb7b8eda0977fb5ae6642d6db81dea2/W16input.py"
+    prog = open(url).read()
+
+    # 將程式載入編輯區
+    Ace1.editor.setValue(prog)
+    Ace1.editor.scrollToRow(0)
+    Ace1.editor.gotoLine(0)
+    # 直接執行程式
+    #ns = {'__name__':'__main__'}
+    #exec(prog, ns)
+    # 按下 run 按鈕
+    Ace1.run()
+
+# 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
+doc['kw_run1'].bind('click', Ace1.run)
+doc['kw_show_console1'].bind('click', Ace1.show_console)
+doc['kw_clear_console1'].bind('click', Ace1.clear_console)
+doc['clear_bd1'].bind('click', clear_bd1)
+# 呼叫函式執行
+run1()
+</script>
+</p>
+<p><!-- add 1 to 100 開始 -->
+<script type="text/python3">
+from browser import document as doc
+import ace
+
+# 清除畫布
+def clear_bd1(ev):
+    bd = doc["brython_div1"]
+    bd.clear()
+
+# 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
+Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
+
+add1to100_url = "https://gist.githubusercontent.com/40832244-github/be09b29d26bfc7e79ed5510bec78690e/raw/3edfcd46aeb7b8eda0977fb5ae6642d6db81dea2/W16input.py"
+
+# 從 gist 取得程式碼
+add_src = open(add1to100_url).read()
+def add(ev):
+    Ace2.editor.setValue(add_src)
+    Ace2.editor.scrollToRow(0)
+    Ace2.editor.gotoLine(0)
+    Ace2.run()
+
+# id 為 "w11" 的按鈕點按時, 執行 add 方法
+doc["W12"].bind('click', add)
+</script>
+</p>
+<p><!-- w11 結束--></p>
+<p><!-- add 1 to 100 開始 -->
+<script type="text/python3">
+from browser import document as doc
+import ace
+
+# 清除畫布
+def clear_bd1(ev):
+    bd = doc["brython_div1"]
+    bd.clear()
+
+# 利用 ace 中的 Editor 建立 Ace2 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
+Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
+
+add1to100_url = "https://gist.githubusercontent.com/40832244-github/25af017dbfd44dbb7f5262779fc008a5/raw/c37fd6b59f09b76b5ef3a1c129377b062c30df3d/w14.py"
+
+# 從 gist 取得程式碼
+add_src = open(add1to100_url).read()
+def add(ev):
+    Ace2.editor.setValue(add_src)
+    Ace2.editor.scrollToRow(0)
+    Ace2.editor.gotoLine(0)
+    Ace2.run()
+
+# id 為 "w11" 的按鈕點按時, 執行 add 方法
+doc["W14"].bind('click', add)
+</script>
+</p>
+<p><!-- w11 結束--></p>
+<!-- editor1 開始 -->
+<p><!-- 用來顯示程式碼的 editor 區域 --></p>
+<div id="kw_editor1" style="width: 600px; height: 300px;"></div>
+<p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
+<p><!-- 存擋表單開始 --></p>
+<form abframeid="iframe.0.9192231242352396" abineguid="401FC5451643458E86F9E1C4948679F5"><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
+<p><!-- 存擋表單結束 --></p>
+<p></p>
+<p><!-- 執行與清除按鈕開始 --></p>
+<p><button id="kw_run1">Run</button> <button id="kw_show_console1">Output</button> <button id="kw_clear_console1">清除輸出區</button><button id="clear_bd1">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<p><!-- 執行與清除按鈕結束 --></p>
+<p></p>
+<p><!-- 程式執行 ouput 區 --></p>
+<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
+<p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
+<div id="brython_div1"></div>
+<!-- editor1 結束 --><hr/><!-- ########################################## -->
 <p></p><h1>Note</h1>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/%E7%B7%A8%E8%BC%AF%E5%AD%90%E6%A8%A1%E7%B5%84(cmsimde).html">編輯子模組(cmsimde)</a></p>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/ADD,%20REMOVE%20OR%20CHANGE%20PASSPHRASE%20OF%20AN%20SSH%20KEY.html">ADD, REMOVE OR CHANGE PASSPHRASE OF AN SSH KEY</a></p>
