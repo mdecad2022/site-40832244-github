@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='40832244的倉儲.html'>40832244的倉儲</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li class='has-children'><a href='W6.html'>W6</a><ul class='dropdown'><li><a href='零件.html'>零件</a><li><a href='組合.html'>組合</a></li></ul><li><a href='W8.html'>W8</a><li><a href='W10.html'>W10</a><li><a href='W11.html'>W11</a><li><a href='W12.html'>W12</a><li><a href='W13.html'>W13</a><li class='has-children'><a href='w14.html'>w14</a><ul class='dropdown'><li><a href='Sovelspace.html'>Sovelspace</a><li><a href='Onshape.html'>Onshape</a><li><a href='NX.html'>NX</a></li></ul><li><a href='W15.html'>W15</a><li><a href='W16.html'>W16</a><li class='has-children'><a href='期末考週.html'>期末考週</a><ul class='dropdown'><li><a href='彈珠檯程式碼.html'>彈珠檯程式碼</a></li></li></ul></ul><li class='has-children'><a href='Note.html'>Note</a><ul class='dropdown'><li><a href='編輯子模組(cmsimde).html'>編輯子模組(cmsimde)</a><li><a href='ADD, REMOVE OR CHANGE PASSPHRASE OF AN SSH KEY.html'>ADD, REMOVE OR CHANGE PASSPHRASE OF AN SSH KEY</a><li><a href='Brython 編輯.html'>Brython 編輯</a><li><a href='python筆記.html'>python筆記</a><li><a href='當大型擋案卡住無法上傳時解決辦法.html'>當大型擋案卡住無法上傳時解決辦法</a><li><a href='製作wink影片.html'>製作wink影片</a></li></ul><li><a href='心得總結.html'>心得總結</a></li>
+                     <li><a href='40832244的倉儲.html'>40832244的倉儲</a><li class='has-children'><a href='HW.html'>HW</a><ul class='dropdown'><li class='has-children'><a href='W6.html'>W6</a><ul class='dropdown'><li><a href='零件.html'>零件</a><li><a href='組合.html'>組合</a></li></ul><li><a href='W8.html'>W8</a><li><a href='W10.html'>W10</a><li><a href='W11.html'>W11</a><li><a href='W12.html'>W12</a><li><a href='W13.html'>W13</a><li class='has-children'><a href='w14.html'>w14</a><ul class='dropdown'><li><a href='Sovelspace.html'>Sovelspace</a><li><a href='Onshape.html'>Onshape</a><li><a href='NX.html'>NX</a></li></ul><li><a href='W15.html'>W15</a><li><a href='W16.html'>W16</a><li class='has-children'><a href='期末考週.html'>期末考週</a><ul class='dropdown'><li><a href='解決辦法.html'>解決辦法</a><li><a href='彈珠檯程式碼.html'>彈珠檯程式碼</a></li></li></ul></ul><li class='has-children'><a href='Note.html'>Note</a><ul class='dropdown'><li><a href='編輯子模組(cmsimde).html'>編輯子模組(cmsimde)</a><li><a href='ADD, REMOVE OR CHANGE PASSPHRASE OF AN SSH KEY.html'>ADD, REMOVE OR CHANGE PASSPHRASE OF AN SSH KEY</a><li><a href='Brython 編輯.html'>Brython 編輯</a><li><a href='python筆記.html'>python筆記</a><li><a href='當大型擋案卡住無法上傳時解決辦法.html'>當大型擋案卡住無法上傳時解決辦法</a><li><a href='製作wink影片.html'>製作wink影片</a></li></ul><li><a href='心得總結.html'>心得總結</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,48 +141,58 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">期末考週 << <a href='期末考週.html'>Previous</a> <a href='Note.html'>Next</a> >> Note<br /><h1>彈珠檯程式碼</h1>
+    <div id="tipue_search_content">解決辦法 << <a href='解決辦法.html'>Previous</a> <a href='Note.html'>Next</a> >> Note<br /><h1>彈珠檯程式碼</h1>
 <pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">#python
-
+ 
 def sysCall_thread():
     sim.setThreadAutomaticSwitch(True)
     print( "From threaded Python child script, threadMain")
-    
+     
     joint1=sim.getObject('./left_joint')
     joint2=sim.getObject('./right_joint')
-    hammer=sim.getObject('./left_player')
-    slider=sim.getObject('./left_slider')
-
+    hammer1=sim.getObject('./left_link')
+    hammer2=sim.getObject('./right_link')
+ 
     velocity1 = 0
     velocity2 = 0
-    hammer_back1 = 0
-    hammer_back2 = 0
+    hammer1_back = 0
+    hammer2_back = 0
     torque1 = 0
     torque2 = 0
     orientation1=sim.getJointPosition(joint1,sim.handle_world)
     orientation2=sim.getJointPosition(joint2,sim.handle_world)
-        
+         
     while sim.getThreadExistRequest() == False:
         message, auxiliaryData, auxiliaryData2 = sim.getSimulatorMessage()
         if (message == sim.message_keypress):
             if (auxiliaryData[0] == ord("f")):
                 print("f is pressed")
                 velocity1 = 100
-                torque = 200
-                hammer_back1 = 0
+                torque1 = 200
+                hammer1_back = 0
+            if (auxiliaryData[0] == ord("d")):
+                print("d is pressed")
+                hammer1_back = 1
+                torque1 = -200
+                velocity1 = -100
+            if (auxiliaryData[0] == ord("k")):
+                print("k is pressed")
+                velocity2 = 100
+                torque2 = 200
+                hammer2_back = 0
             if (auxiliaryData[0] == ord("j")):
                 print("j is pressed")
-                hammer_back = 1
-                torque=-200
-                velocity = -100
-            
-        if hammer_back == 1:
+                hammer2_back = 1
+                torque2 = -200
+                velocity2 = -100
+        if hammer1_back == 1:
             sim.setJointPosition(joint1, -1, orientation1)
-            sim.setJointPosition(joint2, -1, orientation2)
-        sim.setJointTargetPosition(joint1, velocity)
-        sim.setJointTargetPosition(joint2, velocity)</pre>
-<p></p>
-<br />期末考週 << <a href='期末考週.html'>Previous</a> <a href='Note.html'>Next</a> >> Note</div>
+        if hammer2_back == 1:
+            sim.setJointPosition(joint2, +1, orientation2)
+        sim.setJointTargetPosition(joint1, velocity1)
+        sim.setJointTargetPosition(joint2, velocity2)
+        </pre>
+<p></p><br />解決辦法 << <a href='解決辦法.html'>Previous</a> <a href='Note.html'>Next</a> >> Note</div>
         
     <!-- footer -->
       <div class="container">

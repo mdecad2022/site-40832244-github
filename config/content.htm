@@ -972,48 +972,80 @@ var winkVideoData_4083224 = {
 <div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_40832244" height="630" muted="true" width="1008">
 <source src="/downloads/期末考彈珠台.mp4" type="video/mp4"/></video></div>
 <p>分析結果:未使用程式模擬時可知彈珠台做動是沒問題的，但是程式加入後發現會跳出錯誤通知，與W15做的雙軸組立有一樣的結果，使用老師給的檔案後發現老師給的檔案與有一樣的問題，所跳出得錯誤通知對應到的程式碼並非上課學到的內，上網找了許多網站但也並為得到解答。</p>
-<h3>彈珠檯程式碼</h3>
+<p></p>
+<h3>解決辦法</h3>
+<p>(由41023237協助)</p>
+<p>將start_ipv4.bat拖到小白窗，將python後的數字更改為38(因為我所使用的python是38版，若10板不需更改)</p>
+<p><img alt="" height="338" src="/images/2022115.jpg" width="600"/></p>
+<p>更改完後點開start_ipv4.bat，輸入以下兩串指令</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">pip insatll znmp
+pip install cbor</pre>
+<p>下載後重開則完成設定，就能啟動指令做動</p>
+<p>Wink Video</p>
+<script>
+var winkVideoData_4083224 = {
+  dataVersion: 1,
+  frameRate: 10,
+  buttonFrameLength: 5,
+  buttonFrameOffset: 2,
+  frameStops: {
+  },
+};
+</script>
+<!-- 接下來將 mp4 檔案從 downloads 目錄取出 -->
+<div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_40832244" height="630" muted="true" width="1008">
+<source src="/downloads/彈珠台2.mp4" type="video/mp4"/></video></div><h3>彈珠檯程式碼</h3>
 <pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">#python
-
+ 
 def sysCall_thread():
     sim.setThreadAutomaticSwitch(True)
     print( "From threaded Python child script, threadMain")
-    
+     
     joint1=sim.getObject('./left_joint')
     joint2=sim.getObject('./right_joint')
-    hammer=sim.getObject('./left_player')
-    slider=sim.getObject('./left_slider')
-
+    hammer1=sim.getObject('./left_link')
+    hammer2=sim.getObject('./right_link')
+ 
     velocity1 = 0
     velocity2 = 0
-    hammer_back1 = 0
-    hammer_back2 = 0
+    hammer1_back = 0
+    hammer2_back = 0
     torque1 = 0
     torque2 = 0
     orientation1=sim.getJointPosition(joint1,sim.handle_world)
     orientation2=sim.getJointPosition(joint2,sim.handle_world)
-        
+         
     while sim.getThreadExistRequest() == False:
         message, auxiliaryData, auxiliaryData2 = sim.getSimulatorMessage()
         if (message == sim.message_keypress):
             if (auxiliaryData[0] == ord("f")):
                 print("f is pressed")
                 velocity1 = 100
-                torque = 200
-                hammer_back1 = 0
+                torque1 = 200
+                hammer1_back = 0
+            if (auxiliaryData[0] == ord("d")):
+                print("d is pressed")
+                hammer1_back = 1
+                torque1 = -200
+                velocity1 = -100
+            if (auxiliaryData[0] == ord("k")):
+                print("k is pressed")
+                velocity2 = 100
+                torque2 = 200
+                hammer2_back = 0
             if (auxiliaryData[0] == ord("j")):
                 print("j is pressed")
-                hammer_back = 1
-                torque=-200
-                velocity = -100
-            
-        if hammer_back == 1:
+                hammer2_back = 1
+                torque2 = -200
+                velocity2 = -100
+        if hammer1_back == 1:
             sim.setJointPosition(joint1, -1, orientation1)
-            sim.setJointPosition(joint2, -1, orientation2)
-        sim.setJointTargetPosition(joint1, velocity)
-        sim.setJointTargetPosition(joint2, velocity)</pre>
-<p></p>
-<h1>Note</h1>
+        if hammer2_back == 1:
+            sim.setJointPosition(joint2, +1, orientation2)
+        sim.setJointTargetPosition(joint1, velocity1)
+        sim.setJointTargetPosition(joint2, velocity2)
+        </pre>
+<p></p><h1>Note</h1>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/%E7%B7%A8%E8%BC%AF%E5%AD%90%E6%A8%A1%E7%B5%84(cmsimde).html">編輯子模組(cmsimde)</a></p>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/ADD,%20REMOVE%20OR%20CHANGE%20PASSPHRASE%20OF%20AN%20SSH%20KEY.html">ADD, REMOVE OR CHANGE PASSPHRASE OF AN SSH KEY</a></p>
 <p><a href="https://mdecad2022.github.io/site-40832244-github/content/Brython%20編輯.html">Brython編寫</a></p>
@@ -1421,5 +1453,5 @@ var winkVideoData_學號 = {
 <p></p>
 <h1>心得總結</h1>
 <p><span>----------------------------------------------------------------------------------------------------------------</span></p>
-<p>心得:在短短的一學期中，學到了許多新知識，對電腦似乎又更了解了一點。例如剛開始架設網站的方式就跟以往第一次修課時有極大的不同，還用到了Replit以及現在的Stud.cycu.org，並了解SSH通訊協定的用處。在期中時所繪製的零件是一台鑽床，雖然說使用了許多年，但也是對他的機構一知半解，這次獨立把所有零件畫出來，並從局部組裝到整體組裝，使我對鑽床的構造更為透徹。在下半學期時開始遇到一些新的問題，例如python的程式如何編寫、子模組如何重新拉取、SSH Key如果要刪除或是更改該如何做，或是開始使用Wink後發現檔案太大上傳卡住後該如何處理，大部分解決辦法都是上網找答案以及詢問老師，在上網查詢解答時也讓我了解到自己所學會的只是一點皮毛。例如期末考所做的彈珠台還有雙軸組立，放入程式後所遇到的問題都相同，也已經修改python的路徑了，所跳出的錯誤通知也並未得到修正，再加上期末考週時間上的不足，上網找了許久也並未找到解答。這學期一路過來，要謝謝老師細心的指導，並且不會因為我一直問問題而不耐煩，才讓我在這學期的作業遇到的問題大部分都順利解決。</p>
+<p>      心得:在短短的一學期中，學到了許多新知識，對電腦似乎又更了解了一點。例如剛開始架設網站的方式就跟以往第一次修課時有極大的不同，還用到了Replit以及現在的Stud.cycu.org，並了解SSH通訊協定的用處。在期中時所繪製的零件是一台鑽床，雖然說使用了許多年，但也是對他的機構一知半解，這次獨立把所有零件畫出來，並從局部組裝到整體組裝，使我對鑽床的構造更為透徹。在下半學期時開始遇到一些新的問題，例如python的程式如何編寫、子模組如何重新拉取、SSH Key如果要刪除或是更改該如何做，或是開始使用Wink後發現檔案太大上傳卡住後該如何處理，大部分解決辦法都是上網找答案以及詢問老師，在上網查詢解答時也讓我了解到自己所學會的只是一點皮毛。例如期末考所做的彈珠台還有雙軸組立，放入程式後所遇到的問題都相同，也已經修改python的路徑了，所跳出的錯誤通知也並未得到修正，再加上期末考週時間上的不足，上網找了許久也並未找到解答。這學期一路過來，要謝謝老師細心的指導，並且不會因為我一直問問題而不耐煩，才讓我在這學期的作業遇到的問題大部分都順利解決。</p>
 <p>----------------------------------------------------------------------------------------------------------------</p>
